@@ -12,6 +12,27 @@
 
 get_header(); ?>
 
+<style>
+
+article.grid-container {
+	display: grid;
+	 grid-template-columns: 66% 34%;
+	 grid-template-rows: 30% 70%;
+		
+}
+
+#grid-title{
+	grid-area: 1/1;
+}
+
+#grid-blurb{
+	grid-area: 1/2;
+}
+
+#grid-image{
+	grid-area: 2/1;
+}
+</style>
 <div class="wrap">
 
 	<?php if ( have_posts() ) : ?>
@@ -22,7 +43,7 @@ get_header(); ?>
 		</header><!-- .page-header -->
 	<?php endif; ?>
 
-	<div id="primary" class="content-area">
+	<div>
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -34,17 +55,17 @@ get_header(); ?>
 			//Custom output for each event
 			$id = get_the_id();
 			
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			echo '<article class="grid-container">';
+			the_title( '<h2 class="entry-title" id="grid-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			
 			$image = get_field('header_image');
 			$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 			
 			if( $image ) {
-				echo '</main></div><aside id="secondary" class="widget-area" role="complementary"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_get_attachment_image( $image, $size ). '</a></aside>';
-				echo '<div id="primary" class="content-area"><main id="main" class="site-main" role="main">';
+				echo '<div id="grid-image"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_get_attachment_image( $image, $size ). '</a></div>';
 			}
 			?></br></br><?php
-			the_field('blurb');
+			echo '<div id="grid-blurb">'.the_field('blurb').'</div>';
 			echo '</main><hr/><main id="main" class="site-main" role="main">';
 			?></br></br><?php
 
