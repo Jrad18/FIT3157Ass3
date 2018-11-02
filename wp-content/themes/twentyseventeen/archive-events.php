@@ -64,7 +64,9 @@ article.grid-container {
 			if( $image ) {
 				echo '<div id="grid-image"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_get_attachment_image( $image, $size ). '</a></div>';
 			}
-			?></br></br><?php
+			if(get_field('video')){
+				echo '<div id="grid-image"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_field('video'). '</a></div>';
+			}
 			echo '<div id="grid-blurb">'.the_field('blurb').'</div>';
 			echo '</main><hr/><main id="main" class="site-main" role="main">';
 			?></br></br><?php

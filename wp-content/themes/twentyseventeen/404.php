@@ -21,9 +21,17 @@ get_header(); ?>
 					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'twentyseventeen' ); ?></h1>
 				</header><!-- .page-header -->
 				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?></p>
+					<p><?php _e( 'The page you are looking for doesn&rsquo;t exist', 'twentyseventeen' ); ?></p>
+					<p><?php _e( 'This might be because of a typo in the url, or the post/event you&rsquo;re looking for was moved or deleted', 'twentyseventeen' ); ?></p>
+					<p><?php _e( 'You could try searching for what you were looking for.', 'twentyseventeen' ); ?></p>
 
 					<?php get_search_form(); ?>
+					
+					<p><?php _e( 'Or search through the list of events', 'twentyseventeen' ); ?></p>
+					
+					<button href="/FIT3157Ass3/events">Events</button>
+
+
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
